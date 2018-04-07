@@ -1,9 +1,28 @@
 import React from 'react'
 import './index.less'
 import {Form,Input,Button} from 'antd'
+import BaseServise from '../../components/baseServise'
+import urls from '../../contones/urls'
+import history from '../../history'
 const FormItem  = Form.Item
 
 export default class Login extends React.Component{
+
+    loginSubmit =(value)=>{
+        BaseServise.ajax({
+            url:urls.login,
+            data:value,
+            isMock:true,
+        }).then((response)=>{
+            // console.log(response)
+            if(response.data.code==0){
+                history.push('/home')
+            }else {
+                // alet()
+                
+            }
+        })
+    }
     render (){
         return (
             <div className='login-page'>
@@ -12,7 +31,7 @@ export default class Login extends React.Component{
                         <div className='word'>珠峰培训<br/>ERP管理系统</div>
                         <div className='login-box'>
                             <div className='title'>欢迎您</div>
-                            <LoginForm/>
+                            <LoginForm loginSubmit = {this.loginSubmit}/>
                          </div>
                     </div>
                 </div>
@@ -31,6 +50,10 @@ class LoginForm extends React.Component{
         }else {
             callback()
         }
+    }
+    submitLogin =()=>{
+        let data  = this.props.form.getFieldsValue();
+        this.props.loginSubmit(data)
     }
     render (){
         const {getFieldDecorator} =this.props.form
@@ -55,7 +78,7 @@ class LoginForm extends React.Component{
                     }
                 </FormItem>
                 <FormItem>
-                    <Button type="primary" className='login-form-button'>登录</Button>
+                    <Button type="primary" className='login-form-button' onClick={this.submitLogin}>登录</Button>
                 </FormItem>
             </Form>    
         )
