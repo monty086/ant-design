@@ -36,9 +36,10 @@ export default class Order extends React.Component{
                         total:data.total_count,
                         pageSize:data.page_size,
                         current:data.page,
-                        showTotal(){
-                            return '共'+data.total_count+'条'
-                        }
+                        showTotal: () => {
+                            return '共' + data.total_count + '条'
+                        },
+                        showQuickJumper: true,
                     },
                 })
             }
@@ -77,7 +78,7 @@ export default class Order extends React.Component{
             {
                 title:'开始时间',
                 dataIndex:'begin_time',
-                render:Utils.timeFormait,
+                render: Utils.timeFormait
             },
             {
                 title:'处理状态',

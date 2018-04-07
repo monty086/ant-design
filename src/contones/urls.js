@@ -1,7 +1,7 @@
 
 let urls = {} ;
 
-let protocol = window.location.protocol;
+let protocol = window.location.protocol;//xieyi
 let host  = window.location.host;
 
 urls.baseURL = protocol+'//'+host;
