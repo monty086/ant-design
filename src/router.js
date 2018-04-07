@@ -21,6 +21,7 @@ export default class ERouter extends React.Component{
                                         <Switch>
                                             <Route exact path='/home' component={Admin}/>
                                             <Route  path='/home/order' component={Order}/>
+                                            {/* 失败页面重定向 */}
                                             <Redirect to='/home'/>
                                         </Switch>
                                     </Home>

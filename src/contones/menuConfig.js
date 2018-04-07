@@ -12,7 +12,7 @@ export default [
             },
             {
                 title:'认证管理',
-                key:'/use/bike',
+                key:'/use',
                 btnList:[
        
                 ]
@@ -40,8 +40,6 @@ export default [
             }
         ]
     },
-
-    
     {
         title:'营销管理',
         key:'/platform/market',
