@@ -14,13 +14,13 @@ export default class Home extends React.Component{
     render (){
         return (
             <div>
-                <div className='welcome-page'>
+                <div>
                     <Header username={'珠峰培训'}/>
-                    <Row>
-                        <Col span={3} className='nav-left'>
+                    <Row className='welcome-page'>
+                        <Col span='3' className='nav-left'>
                             <NavLeft menuList={this.state.menuList}/>
                         </Col>
-                        <Col span={21} className='right-container'>
+                        <Col span='21' className="right-container">
                             {this.props.children}
                         </Col>
                     </Row>

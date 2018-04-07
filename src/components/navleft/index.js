@@ -45,7 +45,7 @@ export default class NavLeft extends React.Component{
                 className='nav-left'
                 mode='inline'
                 // theme='dark'
-                selectedKeys={[this.state.key]}
+                selectedKeys={[this.state.selectedKeys]}
                 >
                 {this.state.menus}
                 </Menu>
