@@ -7,7 +7,7 @@ import Home from './pages/home'
 import Admin from './pages/admin'
 import Order from './pages/order'
 
-export default class ERoute extends React.Component{
+export default class ERouter extends React.Component{
     render(){
         return (
             <Router history={history}>

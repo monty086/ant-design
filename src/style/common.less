@@ -1,0 +1,213 @@
+// @import "reset.less";
+// @import "default.less";
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  line-height: 1.6;
+  height: auto!important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a img {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+html,body {
+  font-family: "PingFang SC Light", "Heiti SC", "San Francisco", "Helvetica", Arial, sans-serif;
+  //font-size: 12px;
+}
+a:focus{
+  text-decoration: none;
+}
+
+
+.card-wrap{
+  margin:15px 16px;
+  background-color:#fff;
+  border:1px solid #cfdbe2;
+  border-radius: 4px;
+}
+
+//login
+.login-page{
+  .login-content-wrap{
+      min-height:550px;
+      //height:calc(~'100vh - 100px');
+      height:calc(~'100vh');
+      background:url(http://p4pnhkusl.bkt.clouddn.com/banner.jpg) no-repeat center;
+      background-size:cover;
+      .login-content{
+          position:relative;
+          top:50%;
+          display:flex;
+          max-width:960px;
+          margin:0 auto;
+          padding:0 20px;
+          transform:translateY(-50%);
+          align-items:center;
+          justify-content: center;
+          // <br/>
+          .word{
+              flex:7;
+              line-height:1.4;
+              color:#fff;
+              font-size:64px;
+              font-weight:bold;
+          }
+          .login-box{
+              position:relative;
+              flex:4;
+              height:370px;
+              padding:40px 30px 0 30px;
+              background:#fff;
+              overflow:hidden;
+              // 欢迎你
+              .title{
+                  line-height:1;
+                  margin-bottom:50px;
+                  font-size:40px;
+                  color:#333;
+                  font-weight:bold;
+                  text-align:center;
+              }
+              // login组件
+          }
+      }
+  }
+  //登录按钮
+  .login-form-button{
+      width:100%;
+      margin-top:15px;
+  }
+}
+
+//home
+.welcome-page {
+  display:flex;
+  height:calc(~"100vh");
+  padding-top: 55px;
+  overflow:hidden;
+
+  //定义左侧导航占比
+  .nav-left {
+    width: 13.4444%;
+    min-width:180px;
+  }
+  //右侧容器
+  .right-container{
+    flex:1;
+    height:100%;
+    padding:0 0 30px;
+    overflow: auto;
+    background: #e8eef2;
+  }
+}
+
+//admin + card-wrap
+.homeWrap{
+	padding: 300px 0;
+  text-align: center;
+  // 欢迎登录珠峰培训
+	h2{
+		font-size: 36px;
+		font-weight: 700;
+  }
+  // ERP管理系统
+	h3{
+		font-size: 30px;
+		font-weight: 700;
+	}
+}
+
+
+//header 18+6
+
+.header{
+  height: 55px;
+  line-height: 55px;
+  font-size: 18px;
+  padding: 0 15px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  position: fixed!important;
+  z-index: 99;
+  width: 100%;
+  background: #1890ff;
+  color: #fff;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 0 8px #999;
+  top: 0;
+  .ant-col-18{
+    a{
+      color: #fff;
+    }
+  }
+  .ant-col-6{
+  	font-weight: normal;
+    .anticon{margin-right: 5px;}
+    a{
+      margin-left:20px;
+      color:#a3cff9;
+      text-decoration:underline;
+    }
+  }
+}
+
+// navleft
+.nav-left{
+	position:relative;
+	width:14.4444%;
+	height:100%;
+	overflow:hidden;
+	.ant-menu-root{
+		width:auto;
+		height:calc(~'100vh - 1px');
+		margin-right:-25px;
+		padding-right:25px;
+		overflow:auto;
+		&::-webkit-scrollbar{
+			width:0;
+			display:none;
+		}
+	}
+	.ant-tabs-bar{
+		margin-bottom:0;
+	}
+	.ant-tabs-nav{
+		.ant-tabs-tab{
+			margin-right: 0!important;
+		}
+	}
+}
+
+
+//order +wrap 表单区
+.topFilterWrap{
+  padding: 15px 15px 5px;
+  button{
+    margin-right: 10px;
+  }
+  .ant-form-item{padding-bottom: 10px;}
+  .search-input{width:280px;margin-right:20px;}
+}
+//操作区
+.operation-buttons{
+  overflow: hidden;
+  zoom:1;
+  margin:12px 12px 0;
+  button{
+    margin:4px 10px;
+  }
+}
+
+// 内容区：wrap
