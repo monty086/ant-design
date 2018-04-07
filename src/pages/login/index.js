@@ -59,7 +59,7 @@ class LoginForm extends React.Component{
         const {getFieldDecorator} =this.props.form
         return (
             <Form>
-                <FormItem>
+                <Form.Item>
                     {
                        getFieldDecorator('username',{
                             rules:[{validator:this.checkUserName}]
@@ -67,7 +67,7 @@ class LoginForm extends React.Component{
                             <Input placeholder='用户名'/>
                        ) 
                     }
-                </FormItem>
+                </Form.Item>
                 <FormItem>
                     {
                         getFieldDecorator('password',{

@@ -6,7 +6,7 @@ let host  = window.location.host;
 
 urls.baseURL = protocol+'//'+host;
 
-urls.login = '/login'
+urls.login = '/login'   
 urls.order_list = '/order/list'
 
 
