@@ -45,5 +45,7 @@ use: [
 }
 ```
 
+webpack.config.prod.js配置和dev配置一样 
+
 
 
