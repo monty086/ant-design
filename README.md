@@ -10,7 +10,7 @@ npm run eject
 
 ## 模块安装
 
-yarn add less less-loader antd babel-plugin-import axios 
+yarn add less less-loader antd babel-plugin-import axios react-router-dom
 
 ## 文件配置
 
@@ -21,8 +21,6 @@ js模块
 plugins:[
      ['import',[{ libraryName: "antd", style: true }]]
 ],
-
-
 
 ```
 less模块
@@ -46,6 +44,8 @@ use: [
 ```
 
 webpack.config.prod.js配置和dev配置一样 
+
+
 
 
 
