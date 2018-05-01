@@ -10,7 +10,6 @@ export default class BaseServise{
         }else{
             option.baseURL = urls.baseURL
         }
-
         return new Promise ((resolve,reject)=>{
             axios({
                 url:option.url,

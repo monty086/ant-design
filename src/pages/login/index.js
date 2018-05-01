@@ -13,7 +13,7 @@ export default class Login extends React.Component{
             BaseServise.ajax({
                 url:urls.singup,
                 data:value,
-                isMock:true,
+                // isMock:true,
             }).then((response)=>{
                 // console.log(response)
                 if(response.data.code==0){
@@ -26,7 +26,7 @@ export default class Login extends React.Component{
             BaseServise.ajax({
                 url:urls.login,
                 data:value,
-                isMock:true,
+                // isMock:true,
             }).then((response)=>{
                 // console.log(response)
                 if(response.data.code==0){
@@ -43,7 +43,6 @@ export default class Login extends React.Component{
             <div className='login-page'>
                 <div className='login-content-wrap'>
                     <div className='login-content'>
-                        {/* <div className='word'>珠峰博客</div> */}
                         <div className='login-box'>
                             <div className='title'>珠峰博客</div>
                             <LoginForm 
