@@ -133,17 +133,6 @@ export default class Home extends React.Component{
             title:data.title,
             content:data.content,
         }
-        if(this.state.isCreate){
-            BaseService.ajax({
-                url:urls.editBlog,
-                data:params,
-            }).then((res)=>{
-                if(res.code==0){
-                    this.requestList()
-                    this.onCancel()
-                }
-            })      
-        }
         if(this.state.isEdit){
             BaseService.ajax({
                 url:urls.discuss,
@@ -155,6 +144,15 @@ export default class Home extends React.Component{
                 }
             })      
         }
+        BaseService.ajax({
+            url:urls.editBlog,
+            data:params,
+        }).then((res)=>{
+            if(res.code==0){
+                this.requestList()
+                this.onCancel()
+            }
+        }) 
         
     }
     render (){
@@ -238,16 +236,6 @@ export default class Home extends React.Component{
             this.setState(this.props.selectedItem);
         }
     }
-     contentChange=(e)=>{
-        this.setState({
-            content:e.target.value
-        })
-     }
-     titleChange=(e)=>{
-        this.setState({
-            title:e.target.value
-        })
-     }
      render() {
          const formItemLayout = {
              labelCol: { span: 3 },
@@ -291,19 +279,15 @@ export default class Home extends React.Component{
                              <Input
                                  maxLength={50}
                                  placeholder="最多输入50个字"
-                                 {...getFieldProps('title')}
-                                 value={this.state.title}
-                                 onChange={this.titleChange}
+                                 {...getFieldProps('title',{initialValue: this.state.content})}
                              />
                          </FormItem>
                          <FormItem label="正文" {...formItemLayout}  >
                              <Input.TextArea
                                  maxLength={500}
                                  placeholder='博客正文'
-                                 {...getFieldProps('content')}
+                                 {...getFieldProps('content',{initialValue: this.state.content})}
                                  style={{ height: 200 }}
-                                 value={this.state.content}
-                                 onChange={this.contentChange}
                              />
                          </FormItem>
                          <div style={{ padding: 10 }}>
@@ -311,7 +295,7 @@ export default class Home extends React.Component{
                              <span style={{ float: 'right' }}> 评论数:  {selectedItem.pv}</span>
                          </div>
                          {selectedItem.comments.length<=0?<FormItem  {...formItemLayout}>
-                             <div style={{ height: 100 }}>空空如也~~</div>
+                             <div style={{ height: 100 }}>还没有评论~~</div>
                          </FormItem>:commentList}
                          <FormItem label="添加评论" {...formItemLayout}  >
                              <Input.TextArea
