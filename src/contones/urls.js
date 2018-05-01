@@ -6,7 +6,8 @@ let host  = window.location.host;
 
 urls.baseURL = protocol+'//'+host;
 
-urls.login = '/login'   
+urls.login = '/user/signin'  
+urls.singup ='/user/singup'
 urls.order_list = '/order/list'
 
 

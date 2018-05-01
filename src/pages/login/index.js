@@ -9,29 +9,46 @@ const FormItem  = Form.Item
 export default class Login extends React.Component{
 
     loginSubmit =(value)=>{
-        BaseServise.ajax({
-            url:urls.login,
-            data:value,
-            isMock:true,
-        }).then((response)=>{
-            // console.log(response)
-            if(response.data.code==0){
-                history.push('/home')
-            }else {
-                // alet()
-                
-            }
-        })
+        if(value.email){
+            BaseServise.ajax({
+                url:urls.singup,
+                data:value,
+                isMock:true,
+            }).then((response)=>{
+                // console.log(response)
+                if(response.data.code==0){
+                    history.push('/home')
+                }else {
+                    // alet()
+                }
+            })
+        }else{
+            BaseServise.ajax({
+                url:urls.login,
+                data:value,
+                isMock:true,
+            }).then((response)=>{
+                // console.log(response)
+                if(response.data.code==0){
+                    history.push('/home')
+                }else {
+                    // alet()
+                }
+            })
+        }
+       
     }
     render (){
         return (
             <div className='login-page'>
                 <div className='login-content-wrap'>
                     <div className='login-content'>
-                        <div className='word'>珠峰培训<br/>ERP管理系统</div>
+                        {/* <div className='word'>珠峰博客</div> */}
                         <div className='login-box'>
-                            <div className='title'>欢迎您</div>
-                            <LoginForm loginSubmit = {this.loginSubmit}/>
+                            <div className='title'>珠峰博客</div>
+                            <LoginForm 
+                                loginSubmit = {this.loginSubmit}
+                            />
                          </div>
                     </div>
                 </div>
@@ -41,6 +58,9 @@ export default class Login extends React.Component{
 }
 
 class LoginForm extends React.Component{
+    state={
+        isSignUp:false
+    }
     checkUserName=(rule,value,callback)=>{
         let reg = /^1\d{10}$/;
         if(!value){
@@ -55,10 +75,23 @@ class LoginForm extends React.Component{
         let data  = this.props.form.getFieldsValue();
         this.props.loginSubmit(data)
     }
+    signUpForm=()=>{
+        if(this.state.isSignUp){
+            this.setState({
+                isSignUp:false
+            })
+        }else{
+            this.setState({
+                isSignUp:true
+            })
+        }
+        
+    }
     render (){
         const {getFieldDecorator} =this.props.form
+        const {isSignUp} = this.state
         return (
-            <Form>
+            <Form style={{height:isSignUp?'330px':'270px'}}>
                 <Form.Item>
                     {
                        getFieldDecorator('username',{
@@ -77,9 +110,22 @@ class LoginForm extends React.Component{
                         )
                     }
                 </FormItem>
+                {isSignUp?<FormItem>
+                    {
+                        getFieldDecorator('email',{
+                            rules:[{required:true,message:'请输入邮箱'}]
+                        })(
+                            <Input placeholder='邮箱' type='email'/>
+                        )
+                    }
+                </FormItem>:''
+                }
+
                 <FormItem>
-                    <Button type="primary" className='login-form-button' onClick={this.submitLogin}>登录</Button>
+                    <Button type="primary" className='login-form-button' onClick={this.submitLogin}>{isSignUp?'注册':'登录'}</Button>
                 </FormItem>
+
+                <a  onClick={this.signUpForm}>{isSignUp?'已有账号！登录':'没有账号？注册'}</a>
             </Form>    
         )
     }
